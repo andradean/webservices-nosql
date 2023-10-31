@@ -29,4 +29,8 @@ public class UserService {
 		
 		return user;
 	}
+	
+	public User insert(User obj) {
+		return repo.insert(obj);
+	}
 }
