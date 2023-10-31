@@ -1,6 +1,5 @@
 package com.vinicius.webservice.config;
 
-import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.TimeZone;
@@ -11,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 import com.vinicius.webservice.domain.Post;
 import com.vinicius.webservice.domain.User;
+import com.vinicius.webservice.dto.AuthorDTO;
 import com.vinicius.webservice.repository.PostRepository;
 import com.vinicius.webservice.repository.UserRepository;
 
@@ -36,8 +36,8 @@ public class Instantiation implements CommandLineRunner {
 		
 		userRepository.saveAll(Arrays.asList(maria, alex, bob));
 		
-		Post post1 = new Post(null, sdf.parse("21/03/2018"), "Partiu viagem", "Vou viajar para São Paulo. Abraços!", maria);
-		Post post2 = new Post(null, sdf.parse("23/03/2018"), "Bom dia", "Acordei feliz hoje!", alex);
+		Post post1 = new Post(null, sdf.parse("21/03/2018"), "Partiu viagem", "Vou viajar para São Paulo. Abraços!", new AuthorDTO(maria));
+		Post post2 = new Post(null, sdf.parse("23/03/2018"), "Bom dia", "Acordei feliz hoje!", new AuthorDTO(alex));
 		postRepository.saveAll(Arrays.asList(post1, post2));
 		
 	}
