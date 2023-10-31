@@ -12,25 +12,36 @@ import com.vinicius.webservice.services.exception.objectNotFoundException;
 
 @Service
 public class UserService {
-	
+
 	@Autowired
 	private UserRepository repo;
-	
+
 	public List<User> findAll() {
-		
+
 		return repo.findAll();
 	}
-	
-	public Optional<User> findById (String id) {
+
+	public Optional<User> findById(String id) {
 		Optional<User> user = repo.findById(id);
-		if(user == null) {
+		if (user == null) {
 			throw new objectNotFoundException("Objeto não encontrado");
 		}
-		
+
 		return user;
 	}
-	
+
 	public User insert(User obj) {
 		return repo.insert(obj);
 	}
+
+	public void delete(String id) {
+		Optional<User> user = repo.findById(id);
+		if (user == null) {
+			throw new objectNotFoundException("Objeto não encontrado");
+		}
+
+		repo.deleteById(id);
+	}
+	
+
 }

@@ -1,11 +1,10 @@
-package com.vinicius.webservice.resources;
+package com.vinicius.webservice.resources.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.vinicius.webservice.resources.exception.StandardError;
 import com.vinicius.webservice.services.exception.objectNotFoundException;
 
 import jakarta.servlet.http.HttpServletRequest;
